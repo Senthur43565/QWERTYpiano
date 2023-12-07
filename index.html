@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html{
+      scroll-behavior: smooth ;
+    }
+    body{
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      /* background: linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%); */
+      background:url("./pexels-sebastiaan-stam-1480690.jpg") no-repeat 45% 45% #cac3d6;
+      background-position: center;
+      background-size: cover;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      grid-template-rows: repeat(4, 100px);
+    }
+    .grid-container button{
+      font-size: 4em;  
+      color: #FFF7D4;
+      border: none;
+      background: none;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      text-shadow:5px 5px 9px #75c2a5,-3px 2px 9px #92f4af;
+      
+    }
+    
+    .grid-container button:hover{
+      transform:matrix(1.4,-0.54,0.54,1.4,0,0);
+      transition:transform 0.5s ease 0s;
+      background: url(./1314617.jpg);
+      background-position: center;
+      background-size: cover;
+      border-radius: 2em;
+      
+    }
+
+    .q.item{
+      grid-area: 1/1/2/2;
+      animation: slide-in-tl 1s linear 0s 1 normal none;
+    }
+    .w.item{
+      grid-area:1/2/2/3 ;
+      animation: slide-in-fwd-tl 1.3s linear 0s 1 normal none;
+    }
+    .e.item{
+      grid-area: 1/3/2/4 ;
+      animation: slide-in-fwd-top 1.2s linear 0s 1 normal none;
+    }
+    .r.item{
+      grid-area: 1/4/2/5;
+      animation: slide-in-fwd-top 1.5s linear 0s 1 normal none;
+    }
+    .t.item{
+      grid-area: 1/5/2/6;
+      animation: slide-in-fwd-top 1s linear 0s 1 normal none;
+    }
+    .y.item{
+      grid-area: 1/6/2/7 ;
+      animation: slide-in-fwd-top 0.9s linear 0s 1 normal none;
+    }
+    .u.item{
+      grid-area:1/7/2/8 ;
+      animation: slide-in-fwd-top 1.2s linear 0s 1 normal none;
+    }
+    .i.item{
+      grid-area: 1/8/2/9;
+      animation: slide-in-fwd-top 1.6s linear 0s 1 normal none;
+    }
+    .o.item{
+      grid-area:1/9/2/10 ;
+      animation: slide-in-tr 1.2s linear 0s 1 normal none;
+    }
+    .p.item{
+      grid-area:1/10/2/11 ;
+      animation: slide-in-tr 1.4s linear 0s 1 normal none;
+    }
+    .a.item{
+      grid-area: 2/1/3/2;
+      animation: slide-in-left 1.2s linear 0s 1 normal none;
+    }
+    .s.item{
+      grid-area: 2/2/3/3 ;
+      animation: slide-in-tl 1.5s linear 0s 1 normal none;
+    }
+    .d.item{
+      grid-area: 2/3/3/4 ;
+      animation: slide-in-tl 1s linear 0s 1 normal none;
+    }
+    .f.item{
+      grid-area: 2/4/3/5;
+      animation: slide-in-fwd-bl 1.6s linear 0s 1 normal none;
+    }
+    .g.item{
+      grid-area: 2/5/3/6 ;
+      animation: slide-in-fwd-bottom 1.3s linear 0s 1 normal none;
+    }
+    .h.item{
+      grid-area: 2/6/3/7;
+      animation: slide-in-br 1.2s linear 0s 1 normal none;
+    }
+    .j.item{
+      grid-area: 2/7/3/8;
+      animation: slide-in-tr 1s linear 0s 1 normal none;
+    }
+    .k.item{
+      grid-area: 2/8/3/9;
+      animation: slide-in-br 1.4s linear 0s 1 normal none;
+    }
+    .l.item{
+      grid-area: 2/9/3/10;
+      animation: slide-in-br 1.2s linear 0s 1 normal none;
+    }
+    .semiColon.item{
+      grid-area: 2/10/3/11 ;
+      animation: slide-in-right 1.2s linear 0s 1 normal none;
+    }
+    .Asterisk.item{
+      grid-area: 1/11/3/12;
+      animation: slide-in-right 1.5s linear 0s 1 normal none;
+    }
+    .z.item{
+      grid-area: 3/1/4/2;
+      animation: slide-in-left 1.4s linear 0s 1 normal none;
+    }
+    .x.item{
+      grid-area: 3/2/4/3 ;
+      animation: slide-in-fwd-bl 1.2s linear 0s 1 normal none;
+    }
+    .c.item{
+      grid-area: 3/3/4/4 ;
+      animation: slide-in-fwd-bottom 1s linear 0s 1 normal none;
+    }
+    .v.item{
+      grid-area: 3/4/4/5;
+      animation: slide-in-fwd-bottom 1.2s linear 0s 1 normal none;
+    }
+    .b.item{
+      grid-area: 3/5/4/6;
+      animation: slide-in-fwd-bottom 1.5s linear 0s 1 normal none;
+    }
+    .n.item{
+      grid-area: 3/6/4/7;
+      animation: slide-in-fwd-bottom 1.3s linear 0s 1 normal none;
+    }
+    .m.item{
+      grid-area: 3/7/4/8;
+      animation: slide-in-br 1.6s linear 0s 1 normal none;
+    }
+    .comma.item{
+      grid-area: 3/8/4/9 ;
+      animation: slide-in-br 1.1s linear 0s 1 normal none;
+    }
+    .dot.item{
+      grid-area: 3/9/4/10;
+      animation: slide-in-br 1.3s linear 0s 1 normal none;
+    }
+    .slash.item{
+      grid-area: 3/10/4/span 2 ;
+      animation: slide-in-br 1.6s linear 0s 1 normal none;
+    }
+    .spacing.item{
+      grid-area: 4/1/5/12 ;
+      animation: heartbeat 1.5s ease 3 both;
+      border-radius:3em;
+    }
+
+
+
+    /* @keyframes sliding Buttons */
+    @keyframes slide-in-tl {
+			
+      0% {
+        transform:translateY(-1000px) translateX(-1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateY(0) translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-fwd-tl {
+			
+      0% {
+        transform:translateZ(-1400px) translateY(-800px) translateX(-1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateZ(0) translateY(0) translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-fwd-top {
+			
+      0% {
+        transform:translateZ(-1400px) translateY(-800px);
+        opacity:0;
+      }
+      100% {
+        transform:translateZ(0) translateY(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-tr {
+			
+      0% {
+        transform:translateY(-1000px) translateX(1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateY(0) translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-left {
+			
+      0% {
+        transform:translateX(-1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-fwd-bl {
+			
+		0% {
+			transform:translateZ(-1400px) translateY(800px) translateX(-1000px);
+			opacity:0;
+		}
+		100% {
+			transform:translateZ(0) translateY(0) translateX(0);
+			opacity:1;
+		}
+	}
+  @keyframes slide-in-fwd-bottom {
+			
+      0% {
+        transform:translateZ(-1400px) translateY(800px);
+        opacity:0;
+      }
+      100% {
+        transform:translateZ(0) translateY(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-br {
+			
+      0% {
+        transform:translateY(1000px) translateX(1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateY(0) translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes slide-in-right {
+			
+      0% {
+        transform:translateX(1000px);
+        opacity:0;
+      }
+      100% {
+        transform:translateX(0);
+        opacity:1;
+      }
+    }
+  </style>
+</style>
+    
+    
+
+
+  </style>
+</head>
+<body>
+  
+  
+
+
+  <div class="grid-container">
+    <button class="q item slideTop">Q</button>
+    <button class="w item slideTop">W</button>
+    <button class="e item slideTop">E</button>
+    <button class="r item slideTop">R</button>
+    <button class="t item slideTop">T</button>
+    <button class="y item slideTop">Y</button>
+    <button class="u item">U</button>
+    <button class="i item">I</button>
+    <button class="o item">O</button>
+    <button class="p item">P</button>
+    <button class="a item slideTop">A</button>
+    <button class="s item slideTop">S</button>
+    <button class="d item">D</button>
+    <button class="f item">F</button>
+    <button class="g item">G</button>
+    <button class="h item">H</button>
+    <button class="j item">J</button>
+    <button class="k item">K</button>
+    <button class="l item">L</button>
+    <button class="z item">Z</button>
+    <button class="x item">X</button>
+    <button class="c item">C</button>
+    <button class="v item">V</button>
+    <button class="b item">B</button>
+    <button class="n item">N</button>
+    <button class="m item">M</button>
+    <button class="comma item">,</button>
+    <button class="dot item">.</button>
+    <button class="semiColon item">;</button>
+    <button class="Asterisk item">'</button>
+    <button class="slash item">/</button>
+    <button class="spacing item">Space</button>
+  </div>
+  
+
+
+
+  <script>
+  for (let i = 0; i < document.querySelectorAll(".item").length; i++){
+
+      //for mouse click on item
+    document.querySelectorAll(".item")[i].addEventListener("click", function(){
+        var buttoninnerHTML = this.innerHTML
+        makesound(buttoninnerHTML)
+    })
+    }
+    
+
+
+    //for keypress on item
+    document.addEventListener("keypress", function(event){ 
+      makesound(event.key)
+    })
+
+
+
+    //function for making sound effect
+    function makesound(key){
+      switch (key) {
+        case "q":
+          var audio = new Audio("./pianoSounds/203458__tesabob2001__a3.mp3");
+          audio.play();
+          break;
+        case "w":
+          var audio = new Audio("./pianoSounds/203459__tesabob2001__a5.mp3");
+          audio.play();
+          break;
+        case "e":
+          var audio = new Audio("./pianoSounds/203460__tesabob2001__a4.mp3");
+          audio.play();
+          break;
+        case "r":
+          var audio = new Audio("./pianoSounds/203462__tesabob2001__b4.mp3");
+          audio.play();
+          break;
+        case "t":
+          var audio = new Audio("./pianoSounds/203463__tesabob2001__b3.mp3");
+          audio.play();
+          break;
+        case "y":
+          var audio = new Audio("./pianoSounds/203464__tesabob2001__a5.mp3");
+          audio.play();
+          break;
+        case "u":
+          var audio = new Audio("./pianoSounds/203465__tesabob2001__a4.mp3");
+          audio.play();
+          break;
+        case "i":
+          var audio = new Audio("./pianoSounds/203466__tesabob2001__c3.mp3");
+          audio.play();
+          break;
+        case "o":
+          var audio = new Audio("./pianoSounds/203467__tesabob2001__b5.mp3");
+          audio.play();
+          break;
+        case "p":
+          var audio = new Audio("./pianoSounds/203468__tesabob2001__f3.mp3");
+          audio.play();
+          break;
+        case "a":
+          var audio = new Audio("./pianoSounds/203490__tesabob2001__g5.mp3");
+          audio.play();
+          break;
+        case "s":
+          var audio = new Audio("./pianoSounds/203470__tesabob2001__e3.mp3");
+          audio.play();
+          break;
+        case "d":
+          var audio = new Audio("./pianoSounds/203471__tesabob2001__e4.mp3");
+          audio.play();
+          break;
+        case "f":
+          var audio = new Audio("./pianoSounds/203499__tesabob2001__f5.mp3");
+          audio.play();
+          break;
+        case "g":
+          var audio = new Audio("./pianoSounds/203491__tesabob2001__g4.mp3");
+          audio.play();
+          break;
+        case "h":
+          var audio = new Audio("./pianoSounds/203476__tesabob2001__e5.mp3");
+          audio.play();
+          break;
+        case "j":
+          var audio = new Audio("./pianoSounds/203500__tesabob2001__f4.mp3");
+          audio.play();
+          break;
+        case "k":
+          var audio = new Audio("./pianoSounds/203478__tesabob2001__c4-middle-c.mp3");
+          audio.play();
+          break;
+        case "l":
+          var audio = new Audio("./pianoSounds/203479__tesabob2001__c3.mp3");
+          audio.play();
+          break;
+        case ";":
+          var audio = new Audio("./pianoSounds/203480__tesabob2001__c5.mp3");
+          audio.play();
+          break;
+        case "'":
+          var audio = new Audio("./pianoSounds/203481__tesabob2001__c4.mp3");
+          audio.play();
+          break;
+        case "z":
+          var audio = new Audio("./pianoSounds/203482__tesabob2001__d4.mp3");
+          audio.play();
+          break;
+        case "x":
+          var audio = new Audio("./pianoSounds/203483__tesabob2001__d3.mp3");
+          audio.play();
+          break;
+        case "c":
+          var audio = new Audio("./pianoSounds/203484__tesabob2001__c6.mp3");
+          audio.play();
+          break;
+        case "v":
+          var audio = new Audio("./pianoSounds/203485__tesabob2001__c5.mp3");
+          audio.play();
+          break;
+        case "b":
+          var audio = new Audio("./pianoSounds/203486__tesabob2001__d3.mp3");
+          audio.play();
+          break;
+        case "n":
+          var audio = new Audio("./pianoSounds/203487__tesabob2001__d5.mp3");
+          audio.play();
+          break;
+        case "m":
+          var audio = new Audio("./pianoSounds/203488__tesabob2001__g3.mp3");
+          audio.play();
+          break;
+        case ",":
+          var audio = new Audio("./pianoSounds/203489__tesabob2001__f5.mp3");
+          audio.play();
+          break;
+        case ".":
+          var audio = new Audio("./pianoSounds/203502__tesabob2001__a3.mp3");
+          audio.play();
+          break;
+        case "/":
+          var audio = new Audio("./pianoSounds/203501__tesabob2001__f3.mp3");
+          audio.play();
+          break;
+        case "Space":
+          var audio = new Audio("./pianoSounds/203500__tesabob2001__f4.mp3");
+          audio.play();
+          break;
+      
+        default:
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
